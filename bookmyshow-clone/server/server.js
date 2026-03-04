@@ -13,7 +13,11 @@ const theaterRoutes = require("./routes/theaterRoutes");
 const showRoutes = require("./routes/showRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 
+const cors = require("cors");
 
+app.use(cors({
+  origin: "*"
+}));
 
 require("dotenv").config();
 
