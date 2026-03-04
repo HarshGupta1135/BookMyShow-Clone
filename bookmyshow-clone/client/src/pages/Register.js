@@ -184,7 +184,7 @@ function Register() {
     setLoading(true);
     try {
      await axios.post(
-  "https://bookmyshow-backend.onrender.com/api/auth/register",
+  "https://bookmyshow-clone-2knh.onrender.com/api/auth/register",
   { name, email, password }
 );
       alert("Registration successful! Please login.");
