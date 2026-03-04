@@ -187,9 +187,9 @@ function Login() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/login",
-        { email, password }
-      );
+  "https://bookmyshow-backend.onrender.com/api/auth/login",
+  { email, password }
+);
       login(data);
       navigate("/");
     } catch (error) {
