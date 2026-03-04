@@ -28,6 +28,7 @@ app.use("/api/cities", cityRoutes);
 app.use("/api/theaters", theaterRoutes);
 app.use("/api/shows", showRoutes);
 app.use("/api/bookings", bookingRoutes);
+app.use("/api/users", require("./routes/userRoutes"));
 // Test Route
 app.get("/", (req, res) => {
   res.send("Server is running successfully 🚀");
