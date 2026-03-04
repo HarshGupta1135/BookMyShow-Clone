@@ -193,7 +193,7 @@ function Login() {
       login(data);
       navigate("/");
     } catch (error) {
-      setErrorMsg("bsdk kaha ja raha hai ❓");
+      setErrorMsg("Invalid password or gmail ❗");
     } finally {
       setLoading(false);
     }
