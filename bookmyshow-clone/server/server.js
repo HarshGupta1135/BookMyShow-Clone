@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+
 mongoose.connect("mongodb://localhost:27017/bookmyshow")
 .then(() => console.log("MongoDB Connected Successfully ✅"))
   .catch((err) => console.log("MongoDB Connection Error ❌", err));
@@ -13,11 +14,6 @@ const theaterRoutes = require("./routes/theaterRoutes");
 const showRoutes = require("./routes/showRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 
-const cors = require("cors");
-
-app.use(cors({
-  origin: "*"
-}));
 
 require("dotenv").config();
 
