@@ -235,8 +235,8 @@ function MovieDetails() {
   // Fetch movie details
   useEffect(() => {
     const fetchMovie = async () => {
-      const { data } = await axios.get(`${API_URL}/api/movies`);
-      setMovie(data);
+      const { data } = await axios.get(`${API_URL}/api/movies/${id}`);
+setMovie(data);
     };
     fetchMovie();
   }, [id]);
@@ -244,7 +244,7 @@ function MovieDetails() {
   // Fetch cities
   useEffect(() => {
     const fetchCities = async () => {
-      const { data } = await axios.get("http://localhost:5000/api/cities");
+      const { data } = await axios.get(`${API_URL}/api/cities`);
       setCities(data);
     };
     fetchCities();
@@ -255,8 +255,8 @@ function MovieDetails() {
     if (!selectedCity) return;
     const fetchShows = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/api/shows?movieId=${id}&cityId=${selectedCity}`
-      );
+  `${API_URL}/api/shows?movieId=${id}&cityId=${selectedCity}`
+);
       setShows(data);
     };
     fetchShows();
