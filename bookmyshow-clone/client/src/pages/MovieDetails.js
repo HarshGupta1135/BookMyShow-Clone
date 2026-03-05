@@ -376,7 +376,15 @@ setMovie(data);
                       </div>
                       <div>
                         <div className="md-theater-name">{theaterName}</div>
-                        <div className="md-theater-sub">{theaterShows.length} show{theaterShows.length > 1 ? "s" : ""} available today</div>
+                        <div className="md-theater-sub">
+  {theaterShows.length} show{theaterShows.length > 1 ? "s" : ""} available on{" "}
+  {theaterShows.length > 0 &&
+    new Date(theaterShows[0].showTime).toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    })}
+</div>
                       </div>
                       <span className="md-theater-badge">Open</span>
                     </div>
