@@ -187,13 +187,13 @@ function Login() {
     setLoading(true);
     try {
       const { data } = await axios.post(
-  "https://bookmyshow-backend.onrender.com/api/auth/login",
-  { email, password }
-);
+        "http://localhost:5000/api/auth/login",
+        { email, password }
+      );
       login(data);
       navigate("/");
     } catch (error) {
-      setErrorMsg("Invalid password or gmail ❗");
+      setErrorMsg("bsdk kaha ja raha hai ❓");
     } finally {
       setLoading(false);
     }

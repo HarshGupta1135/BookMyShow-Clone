@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-
 mongoose.connect("mongodb://localhost:27017/bookmyshow")
 .then(() => console.log("MongoDB Connected Successfully ✅"))
   .catch((err) => console.log("MongoDB Connection Error ❌", err));
@@ -15,20 +14,20 @@ const showRoutes = require("./routes/showRoutes");
 const bookingRoutes = require("./routes/bookingRoutes");
 
 
+
 require("dotenv").config();
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/api/auth", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/movies", movieRoutes);
 app.use("/api/cities", cityRoutes);
 app.use("/api/theaters", theaterRoutes);
 app.use("/api/shows", showRoutes);
 app.use("/api/bookings", bookingRoutes);
-app.use("/api/users", require("./routes/userRoutes"));
 // Test Route
 app.get("/", (req, res) => {
   res.send("Server is running successfully 🚀");
