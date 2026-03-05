@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
+
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
@@ -184,7 +186,7 @@ function Register() {
     setLoading(true);
     try {
      await axios.post(
-  "https://bookmyshow-backend.onrender.com/api/auth/register",
+  `${API_URL}/api/auth/register`,
   { name, email, password }
 );
       alert("Registration successful! Please login.");
