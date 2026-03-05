@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { API_URL } from "../config";
+
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
@@ -243,7 +245,7 @@ function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/movies");
+        const { data } = await axios.get(`${API_URL}/api/movies`);
         setMovies(data);
       } catch (error) {
         console.log(error);

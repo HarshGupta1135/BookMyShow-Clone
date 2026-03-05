@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
+
 
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
@@ -372,11 +374,11 @@ function SeatSelection() {
   useEffect(() => {
     const fetchShow = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/shows/${showId}`);
-        setShow(data);
-      } catch (error) {
-        console.log(error);
-      }
+  const { data } = await axios.get(`${API_URL}/api/shows/${showId}`);
+  setShow(data);
+} catch (error) {
+  console.log(error);
+}
     };
     fetchShow();
   }, [showId]);
@@ -387,10 +389,10 @@ function SeatSelection() {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       await axios.post(
-        "http://localhost:5000/api/bookings",
-        { showId, seats: selectedSeats, totalPrice },
-        config
-      );
+  `${API_URL}/api/bookings`,
+  { showId, seats: selectedSeats, totalPrice },
+  config
+);
       alert("Booking successful 🎉");
       navigate("/");
     } catch (error) {
